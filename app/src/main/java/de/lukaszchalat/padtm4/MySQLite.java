@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class MySQLite extends SQLiteOpenHelper
 {
@@ -17,7 +18,7 @@ public class MySQLite extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String DATABASE_CREATE = "create table animals " + "(_id integer primary key autoincrement, gatunek text not null, kolor text not null, wielkosc real not null, opis text not null);";
+        String DATABASE_CREATE = "create table animals(_id integer primary key autoincrement, gatunek text not null, kolor text not null, wielkosc real not null, opis text not null);";
         db.execSQL(DATABASE_CREATE);
     }
 
@@ -90,6 +91,8 @@ public class MySQLite extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        return db.rawQuery("Select * from animals", null);
+        Cursor cursor = db.rawQuery("Select * from animals", null);
+
+        return cursor;
     }
 }
