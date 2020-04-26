@@ -34,6 +34,9 @@ public class DodajWpis extends AppCompatActivity {
             {
                 Animal zwierz = (Animal) extras.getSerializable("element");
 
+                int itemPosition = gatunki.getPosition(zwierz.getGatunek());
+                gatunek.setSelection(itemPosition);
+
                 EditText kolor = (EditText) findViewById(R.id.kolor);
                 EditText wielkosc = (EditText) findViewById(R.id.wielkosc);
                 EditText opis = (EditText) findViewById(R.id.opis);

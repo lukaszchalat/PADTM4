@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView name = (TextView) findViewById(android.R.id.text1);
-                Animal zwierz = db.pobierz(Integer.parseInt(name.getText().toString()));
+                Animal zwierz = db.pobierz((int)id);
 
                 Intent intencja = new Intent(getApplicationContext(), DodajWpis.class);
                 intencja.putExtra("element", zwierz);
